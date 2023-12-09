@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This meta tag is related to responsive web design.
+It controls how the webpage is displayed on different
+devices with varying screen sizes -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>TravelUP</title>
+    <style>
+        /* Some basic styling*/
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .home {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+            .login {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Style the links */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        /* Style the search bar */
+        #search-bar {
+            width: 80%;
+            max-width: 400px;
+            padding: 8px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        /* Style the boxes container */
+        .box-container {
+            text-align: center;
+        }
+
+        /* Style the boxes */
+        .box {
+            width: 80%;
+            max-width: 150px;
+            height: 100px;
+            background-color: white;
+            margin: 20px;
+            display: inline-block;
+        }
+
+        /* Styling for the dynamic info boxes */
+        .info-box {
+            width: 300px;
+            border: 1px solid #ccc;
+            margin: 20px;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .box-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .box-content {
+            padding: 10px;
+        }
+
+        .location-text {
+            font-weight: bold;
+        }
+
+        .star-ratings {
+            color: #ffd700;
+        }
+
+        .box-links {
+            margin-top: 10px;
+        }
+
+        .box-links a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+<h1>TravelUP</h1>
+
+<!-- Links-->
+
+<a class="home" href="http://localhost:8080">Home</a>
+
+<a class="login" href="http://localhost:8080/login">Log In</a>
+
+<ul>
+    <li><a href="http://localhost:8080/locations">Locations</a></li>
+    <li><a href="http://localhost:8080/addreview">Add Review</a></li>
+</ul>
+
+<!-- Search bar -->
+<label for="search-bar"></label><input type="text" id="search-bar" placeholder="Search...">
+
+<!-- Box1 -->
+<div class="info-box">
+    <!-- Photo -->
+    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
+
+    <div class="box-content">
+        <!-- Text for location -->
+        <p class="location-text">Location: Hotel Name</p>
+
+        <!-- Star Ratings -->
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+
+        <!-- Links -->
+        <div class="box-links">
+            <a href="http://localhost:8080/reviews">Reviews</a>
+        </div>
+    </div>
+</div>
+
+<!-- Box2 -->
+<div class="info-box">
+    <!-- Photo -->
+    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
+
+    <div class="box-content">
+        <!-- Text for location -->
+        <p class="location-text">Location: Hotel Name</p>
+
+        <!-- Star Ratings -->
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+
+        <!-- Links -->
+        <div class="box-links">
+            <a href="http://localhost:8080/reviews">Reviews</a>
+        </div>
+    </div>
+</div>
+
+<!-- Box3 -->
+<div class="info-box">
+    <!-- Photo -->
+    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
+
+    <div class="box-content">
+        <!-- Text for location -->
+        <p class="location-text">Location: Hotel Name</p>
+
+        <!-- Star Ratings -->
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+
+        <!-- Links -->
+        <div class="box-links">
+            <a href="http://localhost:8080/reviews">Reviews</a>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<!-- Box4 -->
+<div class="info-box">
+    <!-- Photo -->
+    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
+
+    <div class="box-content">
+        <!-- Text for location -->
+        <p class="location-text">Location: Hotel Name</p>
+
+        <!-- Star Ratings -->
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+
+        <!-- Links -->
+        <div class="box-links">
+            <a href="http://localhost:8080/reviews">Reviews</a>
+        </div>
+    </div>
+</div>
+
+<!-- Box5 -->
+<div class="info-box">
+    <!-- Photo -->
+    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
+
+    <div class="box-content">
+        <!-- Text for location -->
+        <p class="location-text">Location: Hotel Name</p>
+
+        <!-- Star Ratings -->
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+
+        <!-- Links -->
+        <div class="box-links">
+            <a href="http://localhost:8080/reviews">Reviews</a>
+        </div>
+    </div>
+</div>
+
+<!-- Box6 -->
+<div class="info-box">
+    <!-- Photo -->
+    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
+
+    <div class="box-content">
+        <!-- Text for location -->
+        <p class="location-text">Location: Hotel Name</p>
+
+        <!-- Star Ratings -->
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+
+        <!-- Links -->
+        <div class="box-links">
+            <a href="http://localhost:8080/reviews">Reviews</a>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
