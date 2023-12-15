@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .home {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .login {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .search-bar {
+            width: 80%;
+            max-width: 400px;
+            padding: 8px;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .reviews-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .review-card {
+            width: 30%;
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .review-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .star-ratings {
+            color: #ffd700;
+            font-size: 18px;
+        }
+
+        .review-text {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<a class="home" href="http://localhost:8080">Home</a>
+
+<a class="login" href="http://localhost:8080/login">Log In</a>
+
+<h1>Reviews</h1>
+
+<!-- Search bar -->
+<input type="text" class="search-bar" placeholder="Search by Location...">
+
+<!-- Reviews container -->
+<div class="reviews-container">
+    <!-- Review Card 1 -->
+    <div class="review-card">
+        <img class="review-image" src="url_to_reviewer_photo.jpg" alt="Reviewer Photo">
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <div class="review-text">
+            <p><strong>Location:</strong> Hotel Name 1</p>
+            <p><strong>Review:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+    </div>
+
+    <!-- Review Card 2 -->
+    <div class="review-card">
+        <img class="review-image" src="url_to_reviewer_photo.jpg" alt="Reviewer Photo">
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">
+            <p><strong>Location:</strong> Hotel Name 2</p>
+            <p><strong>Review:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+
+    <!-- Add more review cards as needed -->
+</div>
+
+</body>
+</html>
