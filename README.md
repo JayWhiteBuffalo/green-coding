@@ -30,3 +30,19 @@ TravelUp is a web application that empowers users to explore and review cities. 
       Secure registration and login functionality.
 
       Authentication ensures only registered users can contribute reviews and ratings.
+
+**Getting Started**
+
+To run the TravelUp locally, follow these steps:
+
+Clone the repository: git clone https://github.com/yourusername/CityReviewApp.git
+
+Navigate to the project directory: cd CityReviewApp
+
+Install dependencies: npm install (if using Node.js) or mvn clean install (if using Maven)
+
+Configure the database connection in the application.properties file.
+
+Run the application: npm start or mvn spring-boot:run
+
+Access the application in your browser: http://localhost:8080
