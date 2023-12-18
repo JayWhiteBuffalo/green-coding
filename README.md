@@ -37,7 +37,7 @@ To run the TravelUp locally, follow these steps:
 
 Clone the repository: git clone [https://github.com/JayWhiteBuffalo/green-coding.git]
 
-Navigate to the project directory: cd CityReviewApp
+Navigate to the project directory: cd green-coding
 
 Configure the database connection in the application.properties file.
 
