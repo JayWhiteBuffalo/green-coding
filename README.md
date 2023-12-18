@@ -1,1 +1,1 @@
-TravelUp Application
+**TravelUp Application**
