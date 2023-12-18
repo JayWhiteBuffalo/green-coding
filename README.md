@@ -39,10 +39,8 @@ Clone the repository: git clone [https://github.com/JayWhiteBuffalo/green-coding
 
 Navigate to the project directory: cd CityReviewApp
 
-Install dependencies: npm install (if using Node.js) or mvn clean install (if using Maven)
-
 Configure the database connection in the application.properties file.
 
-Run the application: npm start or mvn spring-boot:run
+Run the application: BootRun 
 
 Access the application in your browser: http://localhost:8080
