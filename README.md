@@ -35,7 +35,7 @@ TravelUp is a web application that empowers users to explore and review cities. 
 
 To run the TravelUp locally, follow these steps:
 
-Clone the repository: git clone [https://github.com/yourusername/CityReviewApp.git](https://github.com/JayWhiteBuffalo/green-coding.git)
+Clone the repository: git clone [(https://github.com/JayWhiteBuffalo/green-coding.git)]
 
 Navigate to the project directory: cd CityReviewApp
 
