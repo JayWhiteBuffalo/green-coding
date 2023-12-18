@@ -13,9 +13,7 @@ TravelUp is a web application that empowers users to explore and review cities. 
 
 3. Full CRUD Functionality
 
-       Users can add new locations (cities) to the platform.
-   
-       Reviews and ratings for cities can be created, updated, and deleted.
+
 
 4. Relational Database
 
