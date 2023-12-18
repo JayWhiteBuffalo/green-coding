@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .home {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .login {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        li {
+            margin: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .location-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .location-content {
+            padding: 10px;
+        }
+
+        .location-text {
+            font-weight: bold;
+        }
+
+        .star-ratings {
+            color: #ffd700;
+        }
+
+        .location-links {
+            margin-top: 10px;
+        }
+
+        .location-links a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<a class="home" href="http://localhost:8080">Home</a>
+
+<a class="login" href="http://localhost:8080/login">Log In</a>
+
+<h1>Locations</h1>
+
+<ul>
+    <!-- Location 1 -->
+    <li>
+        <img class="location-image" src="url_to_location_photo1.jpg" alt="Location Photo 1">
+        <div class="location-content">
+            <p class="location-text">Location: Hotel Name 1</p>
+            <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            <div class="location-links">
+                <a href="http://localhost:8080/reviews">Reviews</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Location 2 -->
+    <li>
+        <img class="location-image" src="url_to_location_photo2.jpg" alt="Location Photo 2">
+        <div class="location-content">
+            <p class="location-text">Location: Hotel Name 2</p>
+            <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            <div class="location-links">
+                <a href="http://localhost:8080/reviews">Reviews</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Add more locations as needed -->
+</ul>
+
+</body>
+</html>
