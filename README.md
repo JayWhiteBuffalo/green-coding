@@ -7,22 +7,22 @@ TravelUp is a web application that empowers users to explore and review cities. 
 
 1. User Account Creation and Management
 
-      . Users can securely create accounts.
+      Users can securely create accounts.
    
-      . Account management features include profile updates and password changes.
+      Account management features include profile updates and password changes.
 
 3. Full CRUD Functionality
 
-       . Users can add new locations (cities) to the platform.
+       Users can add new locations (cities) to the platform.
    
-       . Reviews and ratings for cities can be created, updated, and deleted.
+       Reviews and ratings for cities can be created, updated, and deleted.
 
 4. Relational Database
 
-      . MySQL database stores ratings, passwords, emails, and location information.
+      MySQL database stores ratings, passwords, emails, and location information.
       External API Usage
       
-      . OAuth-based authentication is employed for obtaining location demographics.
+      OAuth-based authentication is employed for obtaining location demographics.
       Full Feature List
 
 User Registration and Authentication
