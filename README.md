@@ -49,7 +49,7 @@ Access the application in your browser: http://localhost:8080
 
 . OAuth
 
-. HTML, CSS, JavaScript (or your preferred frontend stack)
+. HTML, CSS, Thymleaf
 
 **Contributing**
 
