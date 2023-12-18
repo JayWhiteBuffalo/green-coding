@@ -20,17 +20,11 @@ TravelUp is a web application that empowers users to explore and review cities. 
 4. Relational Database
 
       MySQL database stores ratings, passwords, emails, and location information.
-      External API Usage
+
+5. External API Usage
       
       OAuth-based authentication is employed for obtaining location demographics.
-      Full Feature List
-
-5. User Registration and Authentication
-
-      Secure registration and login functionality.
-
-      Authentication ensures only registered users can contribute reviews and ratings.
-
+   
 **Getting Started**
 
 To run the TravelUp locally, follow these steps:
