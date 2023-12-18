@@ -41,11 +41,15 @@ Access the application in your browser: http://localhost:8080
 
 **Technologies Used**
 
-Java
-Spring Boot
-MySQL
-OAuth
-HTML, CSS, JavaScript (or your preferred frontend stack)
+. Java
+
+. Spring Boot
+
+. MySQL
+
+. OAuth
+
+. HTML, CSS, JavaScript (or your preferred frontend stack)
 
 **Contributing**
 
