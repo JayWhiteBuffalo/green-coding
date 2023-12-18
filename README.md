@@ -44,3 +44,19 @@ Configure the database connection in the application.properties file.
 Run the application: BootRun 
 
 Access the application in your browser: http://localhost:8080
+
+**Technologies Used**
+
+Java
+Spring Boot
+MySQL
+OAuth
+HTML, CSS, JavaScript (or your preferred frontend stack)
+
+**Contributing**
+
+We welcome contributions! If you'd like to contribute to the CityReviewApp, please follow our contribution guidelines.
+
+**License**
+
+This project is licensed under the MIT License.
