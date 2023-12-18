@@ -23,7 +23,7 @@ TravelUp is a web application that empowers users to explore and review cities. 
 
 5. External API Usage
       
-      OAuth-based authentication is employed for obtaining location demographics.
+      OAuth-based authentication is employed for obtaining users authentication.
    
 **Getting Started**
 
