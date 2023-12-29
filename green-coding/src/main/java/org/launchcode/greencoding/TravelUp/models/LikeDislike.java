@@ -17,11 +17,15 @@ public class LikeDislike extends AbstractEntity{
     @Column(name = "is_like")
     private boolean isLike;
 
-    public LikeDislike(Long id, Users user, Comment comment, boolean isLike) {
+    @Column(name = "is_dislike")
+    private boolean isDislike;
+
+    public LikeDislike(Long id, Users user, Comment comment, boolean isLike, boolean isDislike) {
         super(id);
         this.user = user;
         this.comment = comment;
         this.isLike = isLike;
+        this.isDislike = isDislike;
     }
 
     public Users getUser() {
@@ -42,6 +46,14 @@ public class LikeDislike extends AbstractEntity{
 
     public boolean isLike() {
         return isLike;
+    }
+
+    public boolean isDislike() {
+        return isDislike;
+    }
+
+    public void setDislike(boolean dislike) {
+        isDislike = dislike;
     }
 
     public void setLike(boolean like) {
