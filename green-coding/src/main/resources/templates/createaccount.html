@@ -1,106 +1,218 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Create Account</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f4f4f4;-->
+<!--            margin: 0;-->
+<!--            padding: 20px;-->
+<!--            text-align: center;-->
+<!--        }-->
+
+<!--        h2 {-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        .home {-->
+<!--            position: absolute;-->
+<!--            top: 10px;-->
+<!--            left: 10px;-->
+<!--            text-decoration: none;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        .login {-->
+<!--            position: absolute;-->
+<!--            top: 10px;-->
+<!--            right: 10px;-->
+<!--            text-decoration: none;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        form {-->
+<!--            background-color: #fff;-->
+<!--            padding: 20px;-->
+<!--            border-radius: 8px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--            width: 400px;-->
+<!--            margin: 20px auto;-->
+<!--            text-align: left;-->
+<!--        }-->
+
+<!--        label {-->
+<!--            display: block;-->
+<!--            margin: 10px 0;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+<!--        input, select {-->
+<!--            width: 100%;-->
+<!--            padding: 10px;-->
+<!--            margin: 5px 0;-->
+<!--            box-sizing: border-box;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 4px;-->
+<!--        }-->
+
+<!--        button {-->
+<!--            width: 100%;-->
+<!--            padding: 10px;-->
+<!--            background-color: #2196F3;-->
+<!--            color: #fff;-->
+<!--            border: none;-->
+<!--            border-radius: 4px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        button:hover {-->
+<!--            background-color: #45a049;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<a class="home" href="http://localhost:8080">Home</a>-->
+
+<!--<a class="login" href="http://localhost:8080/login">Log In</a>-->
+
+<!--<form>-->
+<!--    <h2>Create Account</h2>-->
+
+<!--    <label for="fullName">Full Name:</label>-->
+<!--    <input type="text" id="fullName" name="fullName" required>-->
+
+<!--    <label for="email">Email:</label>-->
+<!--    <input type="email" id="email" name="email" required>-->
+
+<!--    <label for="username">Username:</label>-->
+<!--    <input type="text" id="username" name="username" required>-->
+
+<!--    <label for="password">Password:</label>-->
+<!--    <input type="password" id="password" name="password" required>-->
+
+<!--    <label for="confirmPassword">Confirm Password:</label>-->
+<!--    <input type="password" id="confirmPassword" name="confirmPassword" required>-->
+
+<!--    &lt;!&ndash; Additional Fields as Needed &ndash;&gt;-->
+
+<!--    <button type="submit">Create Account</button>-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 20px;
+                text-align: center;
+            }
 
-        h2 {
-            color: #333;
-        }
+            h2 {
+                color: #333;
+            }
 
-        .home {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            text-decoration: none;
-            color: #333;
-        }
+            .home {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                text-decoration: none;
+                color: #333;
+            }
 
-        .login {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            text-decoration: none;
-            color: #333;
-        }
+            .login {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                text-decoration: none;
+                color: #333;
+            }
 
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            margin: 20px auto;
-            text-align: left;
-        }
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 400px;
+                margin: 20px auto;
+                text-align: left;
+            }
 
-        label {
-            display: block;
-            margin: 10px 0;
-            font-weight: bold;
-        }
+            label {
+                display: block;
+                margin: 10px 0;
+                font-weight: bold;
+            }
 
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+            input, select {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
 
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #2196F3;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #2196F3;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
 
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
 </head>
+
 <body>
 
-<a class="home" href="http://localhost:8080">Home</a>
 
-<a class="login" href="http://localhost:8080/login">Log In</a>
+<main>
+    <h1>Register New User</h1>
 
-<form>
-    <h2>Create Account</h2>
+    <form method="post">
+        <div class="container">
+            <div class="row">
+                <div class="form-item col-4">
+                    <label th:for="username">Username</label>
+                    <input th:field="${registrationFormDTO.username}" />
+                    <p class="error" th:errors="${registrationFormDTO.username}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="form-item col-4">
+                    <label th:for="password">Password</label>
+                    <input th:field="${registrationFormDTO.password}" type="password" />
+                    <p class="error" th:errors="${registrationFormDTO.password}"></p>
+                </div>
+                <div class="form-item col-4">
+                    <label th:for="verifyPassword">Verify Password</label>
+                    <input th:field="${registrationFormDTO.verifyPassword}" type="password" />
+                    <p class="error" th:errors="${registrationFormDTO.verifyPassword}"></p>
+                </div>
+            </div>
+        </div>
 
-    <label for="fullName">Full Name:</label>
-    <input type="text" id="fullName" name="fullName" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
-
-    <label for="confirmPassword">Confirm Password:</label>
-    <input type="password" id="confirmPassword" name="confirmPassword" required>
-
-    <!-- Additional Fields as Needed -->
-
-    <button type="submit">Create Account</button>
-</form>
+        <button type="submit">Register</button>
+    </form>
+</main>
 
 </body>
 </html>

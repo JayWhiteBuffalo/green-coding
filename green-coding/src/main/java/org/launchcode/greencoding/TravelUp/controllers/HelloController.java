@@ -14,10 +14,10 @@ public class HelloController {
         return "home";
     }
 
-    @GetMapping("login")
-    public String login(){
-        return "login";
-    }
+//    @GetMapping("login")
+//    public String login(){
+//        return "login";
+//    }
 
     @GetMapping("locations")
     public String locations(){
@@ -34,10 +34,10 @@ public class HelloController {
         return "reviews";
     }
 
-    @GetMapping("createaccount")
-    public String createaccount(){
-        return "createaccount";
-    }
+//    @GetMapping("createaccount")
+//    public String createaccount(){
+//        return "createaccount";
+//    }
 
 
 }
