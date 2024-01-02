@@ -1,13 +1,31 @@
 package org.launchcode.greencoding.TravelUp.controllers;
 
+import org.launchcode.greencoding.TravelUp.models.data.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @SpringBootApplication
-public class HelloController {
+public class HomeController {
+    @Autowired
+    private ApplicationRatingRepository applicationRatingRepository;
+
+    @Autowired
+    private FollowerRepository followerRepository;
+
+    @Autowired
+    private LikeDislikeRepository likeDislikeRepository;
+
+    @Autowired
+    CommentRepository commentRepository;
+
+    @Autowired
+    PostRepository postRepository;
+
+    @Autowired
+    PostRatingRepository postRatingRepository;
 
     @GetMapping("/")
     public String home() {
