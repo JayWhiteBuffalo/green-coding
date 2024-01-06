@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <!-- This meta tag is related to responsive web design.
 It controls how the webpage is displayed on different
 devices with varying screen sizes -->
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head>
     <title>TravelUP</title>
     <style>
         /* Some basic styling*/
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
             text-align: center;
         }
 
@@ -19,17 +21,50 @@ devices with varying screen sizes -->
             color: #333;
         }
 
-        .home {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10%;
+    }
 
-            .login {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
+    .navbar button {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: #333;
+        padding: 14px 16px;
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    .navbar-content {
+        display: none;
+        position: absolute;
+        background-color: #f4f4f4;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .navbar-content a {
+        float: none;
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .navbar-content a:hover {
+        background-color: white;
+    }
+
+    .navbar:hover .navbar-content {
+        display: block;
+    }
+
 
         /* Style the links */
         ul {
@@ -47,62 +82,55 @@ devices with varying screen sizes -->
             width: 80%;
             max-width: 400px;
             padding: 8px;
-            margin: 10px auto;
+            margin: 20px auto;
             display: block;
         }
 
-        /* Style the boxes container */
-        .box-container {
-            text-align: center;
+        .reviews-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        /* Style the boxes */
-        .box {
-            width: 80%;
-            max-width: 150px;
-            height: 100px;
-            background-color: white;
-            margin: 20px;
-            display: inline-block;
+        .review-card {
+            width: 30%;
+            margin: 10px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
         }
 
-        /* Styling for the dynamic info boxes */
-        .info-box {
-            width: 300px;
-            border: 1px solid #ccc;
-            margin: 20px;
-            overflow: hidden;
-            display: inline-block;
-            vertical-align: top;
+        .star-ratings {
+            color: #ffd700;
+            font-size: 18px;
         }
 
-        .box-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .box-content {
-            padding: 10px;
+        .review-text {
+            margin-top: 10px;
         }
 
         .location-text {
             font-weight: bold;
         }
 
-        .star-ratings {
-            color: #ffd700;
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
-        .box-links {
-            margin-top: 10px;
+        button:hover {
+            background-color: #45a049;
         }
 
-        .box-links a {
-            display: block;
-            margin-bottom: 5px;
-            text-decoration: none;
-            color: #333;
-        }
     </style>
 </head>
 
@@ -110,133 +138,61 @@ devices with varying screen sizes -->
 <h1>TravelUP</h1>
 
 <!-- Links-->
-
-<a class="home" href="http://localhost:8080">Home</a>
-
-<a class="login" href="http://localhost:8080/login">Log In</a>
-
-<ul>
-    <li><a href="http://localhost:8080/locations">Locations</a></li>
-    <li><a href="http://localhost:8080/addreview">Add Review</a></li>
-</ul>
+<div class="navbar">
+    <button class="dropbtn">Menu</button>
+    <div class="navbar-content">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/reviews}">Reviews</a>
+        <a th:href="@{/addreview}">Add Review</a>
+        <a th:href="@{/login}">Log In</a>
+        <a th:href="@{/createaccount}">Create Account</a>
+    </div>
+</div>
 
 <!-- Search bar -->
-<label for="search-bar"></label><input type="text" id="search-bar" placeholder="Search...">
+<label for="search-bar"></label><input type="text" id="search-bar" placeholder="Search by Star Ratings...">
 
-<!-- Box1 -->
-<div class="info-box">
-    <!-- Photo -->
-    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
-
-    <div class="box-content">
-        <!-- Text for location -->
-        <p class="location-text">Location: Hotel Name</p>
-
-        <!-- Star Ratings -->
+<!-- Reviews container -->
+<div class="reviews-container">
+    <!-- Review Card 1 -->
+    <div class="review-card">
+        <img class="review-image" th:src="@{url_to_reviewer_photo.jpg}" alt="Reviewer Photo">
         <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-
-        <!-- Links -->
-        <div class="box-links">
-            <a href="http://localhost:8080/reviews">Reviews</a>
+        <div class="review-text">
+            <p><strong>Location:</strong> Hotel Name 1</p>
+            <p><strong>Review:</strong> reviews shown here.</p>
         </div>
+    </div>
+
+    <!-- Review Card 2 -->
+    <div class="review-card">
+        <img class="review-image" src="url_to_reviewer_photo.jpg" alt="Reviewer Photo">
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <div class="review-text">
+            <p><strong>Location:</strong> Hotel Name 1</p>
+            <p><strong>Review:</strong> reviews shown here.</p>
+        </div>
+    </div>
+
+<!-- Review Card 3 -->
+<div class="review-card">
+    <img class="review-image" src="url_to_reviewer_photo.jpg" alt="Reviewer Photo">
+    <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="review-text">
+        <p><strong>Location:</strong> Hotel Name 2</p>
+        <p><strong>Review:</strong> reviews shown here.</p>
     </div>
 </div>
 
-<!-- Box2 -->
-<div class="info-box">
-    <!-- Photo -->
-    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
-
-    <div class="box-content">
-        <!-- Text for location -->
-        <p class="location-text">Location: Hotel Name</p>
-
-        <!-- Star Ratings -->
-        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-
-        <!-- Links -->
-        <div class="box-links">
-            <a href="http://localhost:8080/reviews">Reviews</a>
-        </div>
+<!-- Review Card 4 -->
+<div class="review-card">
+    <img class="review-image" src="url_to_reviewer_photo.jpg" alt="Reviewer Photo">
+    <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="review-text">
+        <p><strong>Location:</strong> Hotel Name 2</p>
+        <p><strong>Review:</strong> reviews shown here.</p>
     </div>
 </div>
-
-<!-- Box3 -->
-<div class="info-box">
-    <!-- Photo -->
-    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
-
-    <div class="box-content">
-        <!-- Text for location -->
-        <p class="location-text">Location: Hotel Name</p>
-
-        <!-- Star Ratings -->
-        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-
-        <!-- Links -->
-        <div class="box-links">
-            <a href="http://localhost:8080/reviews">Reviews</a>
-        </div>
-    </div>
-</div>
-
-<br>
-
-<!-- Box4 -->
-<div class="info-box">
-    <!-- Photo -->
-    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
-
-    <div class="box-content">
-        <!-- Text for location -->
-        <p class="location-text">Location: Hotel Name</p>
-
-        <!-- Star Ratings -->
-        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-
-        <!-- Links -->
-        <div class="box-links">
-            <a href="http://localhost:8080/reviews">Reviews</a>
-        </div>
-    </div>
-</div>
-
-<!-- Box5 -->
-<div class="info-box">
-    <!-- Photo -->
-    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
-
-    <div class="box-content">
-        <!-- Text for location -->
-        <p class="location-text">Location: Hotel Name</p>
-
-        <!-- Star Ratings -->
-        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-
-        <!-- Links -->
-        <div class="box-links">
-            <a href="http://localhost:8080/reviews">Reviews</a>
-        </div>
-    </div>
-</div>
-
-<!-- Box6 -->
-<div class="info-box">
-    <!-- Photo -->
-    <img class="box-image" src="url_to_your_photo.jpg" alt="Location Photo">
-
-    <div class="box-content">
-        <!-- Text for location -->
-        <p class="location-text">Location: Hotel Name</p>
-
-        <!-- Star Ratings -->
-        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-
-        <!-- Links -->
-        <div class="box-links">
-            <a href="http://localhost:8080/reviews">Reviews</a>
-        </div>
-    </div>
 </div>
 
 </body>
