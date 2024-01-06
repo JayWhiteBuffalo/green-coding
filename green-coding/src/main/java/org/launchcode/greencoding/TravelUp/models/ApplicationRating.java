@@ -12,6 +12,8 @@ public class ApplicationRating extends AbstractEntity{
 
     private int rating;
 
+    public ApplicationRating() {}
+
     public ApplicationRating(Long id, Users user, int rating) {
         super(id);
         this.user = user;

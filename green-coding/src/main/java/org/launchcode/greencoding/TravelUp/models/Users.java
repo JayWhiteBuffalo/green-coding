@@ -37,6 +37,8 @@ public class Users extends AbstractEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<LikeDislike> likeDislikes;
 
+    public Users() {}
+
     public Users(Long id, String name, String email, String password, byte[] profilePicture, List<Post> posts, List<Comment> comments, List<PostRating> postRatings, List<ApplicationRating> applicationRatings, List<Follower> followers, List<LikeDislike> likeDislikes) {
         super(id);
         this.name = name;

@@ -17,6 +17,8 @@ public class LikeDislike extends AbstractEntity{
     @Column(name = "is_like")
     private boolean isLike;
 
+    public LikeDislike() {}
+
     public LikeDislike(Long id, Users user, Comment comment, boolean isLike) {
         super(id);
         this.user = user;

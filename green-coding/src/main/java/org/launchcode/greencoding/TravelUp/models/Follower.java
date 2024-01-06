@@ -20,6 +20,8 @@ public class Follower extends AbstractEntity{
         this.following = following;
     }
 
+    public Follower() {}
+
     public Users getFollower() {
         return follower;
     }

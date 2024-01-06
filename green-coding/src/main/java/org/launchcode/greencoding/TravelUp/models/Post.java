@@ -23,6 +23,7 @@ public class Post extends AbstractEntity {
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments;
+    public Post() {}
 
 
     public Post(Long id, Users user, String caption, double rating, byte[] imageData, List<Comment> comments) {
