@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Submitted</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+           .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10%;
+    }
+
+    .navbar button {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: #333;
+        padding: 14px 16px;
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    .navbar-content {
+        display: none;
+        position: absolute;
+        background-color: #f4f4f4;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .navbar-content a {
+        float: none;
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .navbar-content a:hover {
+        background-color: white;
+    }
+
+    .navbar:hover .navbar-content {
+        display: block;
+    }
+
+        h1 {
+            color: #333;
+        }
+
+        .message-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #333;
+        }
+
+                button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Review Submitted</h1>
+
+<!-- Links-->
+<div class="navbar">
+    <button class="dropbtn">Menu</button>
+    <div class="navbar-content">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/reviews}">Reviews</a>
+        <a th:href="@{/addreview}">Add Review</a>
+        <a th:href="@{/login}">Log In</a>
+        <a th:href="@{/createaccount}">Create Account</a>
+    </div>
+</div>
+
+<div class="message-container">
+    <p>Thank you for submitting your review!</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Review</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+
+        h2 {
+            color: #333;
+        }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10%;
+    }
+
+    .navbar button {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: #333;
+        padding: 14px 16px;
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    .navbar-content {
+        display: none;
+        position: absolute;
+        background-color: #f4f4f4;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .navbar-content a {
+        float: none;
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .navbar-content a:hover {
+        background-color: white;
+    }
+
+    .navbar:hover .navbar-content {
+        display: block;
+    }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Links-->
+<div class="navbar">
+    <button class="dropbtn">Menu</button>
+    <div class="navbar-content">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/reviews}">Reviews</a>
+        <a th:href="@{/addreview}">Add Review</a>
+        <a th:href="@{/login}">Log In</a>
+        <a th:href="@{/createaccount}">Create Account</a>
+    </div>
+</div>
+
+<form method="POST" action="/submitedreview" enctype="multipart/form-data">
+    <h2>Add Review</h2>
+
+<!--code to be able to have a different page to add locations and they populate here-->
+    <!-- Select Location -->
+<!--    <label for="locationSelect">Select Location:</label>-->
+<!--    <select id="locationSelect" name="locationSelect" required>-->
+        <!-- Populate this with the available locations -->
+<!--        <option value="location1">Location 1</option>-->
+<!--        <option value="location2">Location 2</option>-->
+        <!-- Add more options dynamically based on available locations -->
+<!--    </select>-->
+
+    <!-- Location Input -->
+    <label for="locationInput">Location:</label>
+    <input type="text" id="locationInput" name="locationInput" required placeholder="Type the location">
+
+
+    <!-- Upload Picture -->
+    <label for="picture">Upload Picture:</label>
+    <input type="file" id="picture" name="picture" accept="image/*">
+
+    <!-- Review Text -->
+    <label for="reviewText">Review:</label>
+    <textarea id="reviewText" name="reviewText" required></textarea>
+
+    <!-- Star Ratings -->
+    <label for="starRatings">Star Ratings:</label>
+    <select id="starRatings" name="starRatings" required>
+        <option value="1">&#9733;</option>
+        <option value="2">&#9733;&#9733;</option>
+        <option value="3">&#9733;&#9733;&#9733;</option>
+        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+    </select>
+
+    <!-- Additional Fields as Needed -->
+
+    <button type="submit">Add Review</button>
+</form>
+
+</body>
+</html>

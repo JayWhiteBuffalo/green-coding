@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!-- This meta tag is related to responsive web design.
+It controls how the webpage is displayed on different
+devices with varying screen sizes -->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelUP</title>
+    <style>
+        /* Some basic styling*/
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 10%;
+    }
+
+    .navbar button {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: #333;
+        padding: 14px 16px;
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+        margin: 0;
+    }
+
+    .navbar-content {
+        display: none;
+        position: absolute;
+        background-color: #f4f4f4;
+        min-width: 160px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .navbar-content a {
+        float: none;
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .navbar-content a:hover {
+        background-color: white;
+    }
+
+    .navbar:hover .navbar-content {
+        display: block;
+    }
+
+
+        /* Style the links */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        /* Style the search bar */
+        #search-bar {
+            width: 80%;
+            max-width: 400px;
+            padding: 8px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .reviews-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .review-card {
+            width: 30%;
+            margin: 10px;
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .star-ratings {
+            color: #ffd700;
+            font-size: 18px;
+        }
+
+        .review-text {
+            margin-top: 10px;
+        }
+
+        .location-text {
+            font-weight: bold;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+
+<body>
+<h1>TravelUP</h1>
+
+<!-- Links-->
+<div class="navbar">
+    <button class="dropbtn">Menu</button>
+    <div class="navbar-content">
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/reviews}">Reviews</a>
+        <a th:href="@{/addreview}">Add Review</a>
+        <a th:href="@{/login}">Log In</a>
+        <a th:href="@{/createaccount}">Create Account</a>
+    </div>
+</div>
+
+<!-- Search bar -->
+<label for="search-bar"></label><input type="text" id="search-bar" placeholder="Search by Star Ratings...">
+
+<!-- Reviews container -->
+<div class="reviews-container">
+    <!-- Review Card 1 -->
+    <div class="review-card">
+        <img class="review-image" th:src="@{url_to_reviewer_photo.jpg}" alt="Reviewer Photo">
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <div class="review-text">
+            <p><strong>Location:</strong> Hotel Name 1</p>
+            <p><strong>Review:</strong> reviews shown here.</p>
+        </div>
+    </div>
+
+    <!-- Review Card 2 -->
+    <div class="review-card">
+        <img class="review-image" src="url_to_reviewer_photo.jpg" alt="Reviewer Photo">
+        <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+        <div class="review-text">
+            <p><strong>Location:</strong> Hotel Name 1</p>
+            <p><strong>Review:</strong> reviews shown here.</p>
+        </div>
+    </div>
+
+<!-- Review Card 3 -->
+<div class="review-card">
+    <img class="review-image" src="url_to_reviewer_photo.jpg" alt="Reviewer Photo">
+    <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="review-text">
+        <p><strong>Location:</strong> Hotel Name 2</p>
+        <p><strong>Review:</strong> reviews shown here.</p>
+    </div>
+</div>
+
+<!-- Review Card 4 -->
+<div class="review-card">
+    <img class="review-image" src="url_to_reviewer_photo.jpg" alt="Reviewer Photo">
+    <div class="star-ratings">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="review-text">
+        <p><strong>Location:</strong> Hotel Name 2</p>
+        <p><strong>Review:</strong> reviews shown here.</p>
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>
