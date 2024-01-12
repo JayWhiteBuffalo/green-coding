@@ -1,8 +1,7 @@
 **TravelUp Application**
 
 
-TravelUp is a web application that empowers users to explore and review cities. It provides a platform for users to create accounts, submit reviews, and rate cities, contributing to a community-driven resource for city recommendations. The application utilizes a relational MySQL database to store user information, reviews, ratings, and location details. Additionally, external API usage includes OAuth-based authentication for obtaining users authentication.
-
+TravelUp is a web application that empowers users to explore and review cities. It provides a platform for users to create accounts, submit reviews, and rate cities, contributing to a community-driven resource for city recommendations. The application utilizes a relational MySQL database to store user information, reviews, ratings, and location details. 
 **Base Feature List**
 
 1. User Account Creation and Management
@@ -13,7 +12,7 @@ TravelUp is a web application that empowers users to explore and review cities. 
 
 3. Full CRUD Functionality
 
-      Users can add new locations (cities) to the platform.
+      Users can add reviews to the platform.
 
       Reviews and ratings for cities can be created, updated, and deleted.
 
@@ -23,7 +22,7 @@ TravelUp is a web application that empowers users to explore and review cities. 
 
 5. External API Usage
       
-      OAuth-based authentication is employed for obtaining users authentication.
+      List of all Countries around the world.
    
 **Getting Started**
 
@@ -46,8 +45,6 @@ Access the application in your browser: http://localhost:8080
 . Spring Boot
 
 . MySQL
-
-. OAuth
 
 . HTML, CSS, Thymleaf
 
