@@ -2,6 +2,8 @@
 
 
 TravelUp is a web application that empowers users to explore and review cities. It provides a platform for users to create accounts, submit reviews, and rate cities, contributing to a community-driven resource for city recommendations. The application utilizes a relational MySQL database to store user information, reviews, ratings, and location details. 
+
+
 **Base Feature List**
 
 1. User Account Creation and Management
