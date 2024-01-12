@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<div id="admin-bar">
+    <div class="nav">
+        <a class="navlink" href="/reviews">View List of Artworks</a>
+        <a class="navlink" href="/reviews/add">Add Artwork</a>
+    </div>
+</div>
+<main>
+    <form action='/reviews/delete' method='POST'>
+        <h3>Delete Artwork</h3>
+        <th:block th:each="review : ${reviews}">
+            <label>
+                <input type="checkbox" name="reviewIds" th:value="${review.id}" />
+                <span th:text="'Title: ' + ${review.title} + ', Country: ' + ${review.country.commonName} + ', City: ' + ${review.city}"></span>
+                <!-- implicitly calls toString() -->
+            </label><br />
+        </th:block>
+        <button class="delete" type='submit'>Delete Artwork</button>
+    </form>
+</main>
+</body>
+</html>
