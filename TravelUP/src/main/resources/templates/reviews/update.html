@@ -1,10 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body style="box-sizing: border-box; background-color: #f2f2f2; background: url('/images/vibes4.JPG') center/cover no-repeat fixed;">
+<header th:replace="~{fragments :: header}"></header>
+<div id="admin-bar">
+    <div class="nav">
+        <a class="navlink" href="/reviews">View List of Vibes</a>
+        <a class="navlink" href="/reviews/delete">Delete Vibe</a>
+    </div>
+</div>
+<main>
+    <h3 style="color: white; background-color: #003366; margin-bottom: 2em;">Edit Vibe</h3>
+
+    <!-- Update Vibe form -->
+    <!--    <form action="@{'/reviews/update/' + ${review.id}}" method="POST">-->
+    <!--        <input type="hidden" name="_method" value="PUT" />-->
+    <!--        <form action='/reviews/add' method='POST'>-->
+
+    <form action="/reviews/update/{reviewId}" method="POST" th:object="${review}" th:action="@{'/reviews/update/' + ${review.id}}">
+
+
+        <!-- ID field -->
+        <div class="row">
+            <div class="form-item col-8">
+                <label for="id">ID</label>
+                <input type="text" id="id" th:field="${review.id}" readonly="readonly" />
+            </div>
+        </div>
+
+        <!-- Title -->
+        <div class="row">
+            <div class="form-item col-8">
+                <label for="title">Title</label>
+                <input id="title" th:field="${review.title}" />
+                <p class="error" th:errors="${review.title}"></p>
+            </div>
+        </div>
+
+        <!-- City -->
+        <div class="row">
+            <div class="form-item col">
+                <label for="city">City</label>
+                <input id="city" th:field="${review.city}" />
+                <p class="error" th:errors="${review.city}"></p>
+            </div>
+        </div>
+
+        <!-- Country -->
+        <div class="row">
+            <div class="form-item col-4">
+                <label for="country">Country</label>
+                <select id="country" th:field="${review.country.id}">
+                    <option value="">Select a country</option>
+                    <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.commonName}"></option>
+                </select>
+                <p class="error" th:errors="${review.country}"></p>
+            </div>
+        </div>
+
+        <!-- Vibe -->
+        <div class="row">
+            <div class="form-item col">
+                <label for="comment">Vibe</label>
+                <textarea id="comment" th:field="${review.comment}"></textarea>
+            </div>
+        </div>
+
+        <!-- Rate -->
+        <div class="row">
+            <div class="form-item col">
+                <label for="rate">Rate</label>
+                <input type="number" id="rate" th:field="${review.rate}" min="1" max="5" />
+                <p class="error" th:errors="${review.rate}"></p>
+            </div>
+        </div>
+
+        <!-- Weather checkboxes -->
+                <div class="row">
+                    <div class="form-item col">
+                        <th:block th:each="weather : ${weathers}">
+                            <label>
+                                <input type="checkbox" name="weatherIds" th:value="${weather.id}" />
+                                <span th:text="${weather.name}"></span>
+                            </label>
+                        </th:block>
+                    </div>
+                </div>
+
+        <!-- Submit button -->
+        <div class="row">
+            <div class="form-item col">
+                <button type="submit" style="background-color: #003366;">Update Vibe</button>
+            </div>
+        </div>
+    </form>
+</main>
 </body>
 </html>
+
+

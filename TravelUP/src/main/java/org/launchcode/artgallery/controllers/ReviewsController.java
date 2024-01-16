@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -108,6 +110,77 @@ public class ReviewsController {
         }
     }
 
+
+    @GetMapping("/update/{reviewId}")
+    public String displayUpdateArtForm(@PathVariable int reviewId, Model model, HttpSession session) {
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
+
+        Optional<Review> result = reviewRepository.findById(reviewId);
+        if (result.isPresent()) {
+            Review review = result.get();
+            List<CountryInfo> countries = (List<CountryInfo>) countryRepository.findAll();
+            Collections.sort(countries, new CountryComparator());
+            List<Weather> weather = (List<Weather>) weatherRepository.findAll();
+            Collections.sort(weather, new WeatherComparator());
+            model.addAttribute("review", review);
+            model.addAttribute("countries", countries);
+            model.addAttribute("weathers", weather);
+            return "reviews/update";
+        }
+
+        return "redirect:/reviews";
+    }
+
+    @PostMapping("/update/{reviewId}")
+    public String processUpdateArtForm(@PathVariable int reviewId,
+                                       @ModelAttribute @Valid Review updatedReview,
+                                       Errors errors,
+                                       @RequestParam(required = false) List<Integer> weatherIds,
+                                       Model model)
+
+    {
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
+            List<CountryInfo> countries = (List<CountryInfo>) countryRepository.findAll();
+            Collections.sort(countries, new CountryComparator());
+            List<Weather> weather = (List<Weather>) weatherRepository.findAll();
+            Collections.sort(weather, new WeatherComparator());
+            model.addAttribute("review", updatedReview);
+            model.addAttribute("countries", countries);
+            model.addAttribute("weathers", weather);
+            return "reviews/update";
+        } else {
+            try {
+                Optional<Review> result = reviewRepository.findById(reviewId);
+                if (result.isPresent()) {
+                    Review existingReview = result.get();
+                    existingReview.setTitle(updatedReview.getTitle());
+                    existingReview.setCity(updatedReview.getCity());
+                    existingReview.setCountry(updatedReview.getCountry());
+                    existingReview.setComment(updatedReview.getComment());
+                    existingReview.setRate(updatedReview.getRate());
+
+                    if (weatherIds != null) {
+                        List<Weather> selectedWeathers = (List<Weather>) weatherRepository.findAllById(weatherIds);
+                        existingReview.setWeather(selectedWeathers);
+                    }
+
+                    reviewRepository.save(existingReview);
+                    return "redirect:/reviews/details/" + reviewId;
+                } else {
+                    return "redirect:/reviews";
+                }
+            } catch (Exception e) {
+                model.addAttribute("error", "An error occurred while updating the review.");
+                return "reviews/update";
+            }
+        }
+    }
+
+
+
+
+
     // Corresponds to http://localhost:8080/artworks/delete
     @GetMapping("/delete")
     public String displayDeleteArtForm(Model model, HttpSession session) {
@@ -119,9 +192,11 @@ public class ReviewsController {
     @PostMapping("/delete")
     public String processDeleteArtForm(@RequestParam(required = false) int[] reviewIds) {
         for (int id : reviewIds) {
-           reviewRepository.deleteById(id);
+            reviewRepository.deleteById(id);
         }
         return "redirect:/reviews";
     }
 
 }
+
+
