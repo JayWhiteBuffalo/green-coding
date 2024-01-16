@@ -59,8 +59,12 @@
             </div>
         </div>
     </div>
-
-
+    <!-- Add the "Update" button at the bottom centered -->
+    <div class="row">
+        <div class="col" style="text-align: center; margin-top: 1em;">
+            <a th:href="@{'/reviews/update/' + ${review.id}}" class="btn btn-primary">Update</a>
+        </div>
+    </div>
 
 
 

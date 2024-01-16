@@ -9,9 +9,9 @@
     </div>
 </div>
 <main>
-    <h2>STYLES</h2>
+    <h2>WEATHER</h2>
     <p th:unless="${weathers} and ${weathers.size()}">
-        <em>No styles to display.</em>
+        <em>No weather to display.</em>
     </p>
     <th:block th:if="${weathers} and ${weathers.size()}">
         <table class="table table-striped">
