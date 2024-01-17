@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}"></head>
-<body>
+<body style="box-sizing: border-box; background-color: #f2f2f2; background: url('/images/vibes4.JPG') center/cover no-repeat fixed;">
 <header th:replace="~{fragments :: header}"></header>
 <div id="admin-bar">
     <div class="nav">
@@ -11,7 +11,7 @@
 </div>
 <main>
     <form action='/reviews/delete' method='POST'>
-        <h3>Delete Artwork</h3>
+        <h3>Delete Vibe</h3>
         <th:block th:each="review : ${reviews}">
             <label>
                 <input type="checkbox" name="reviewIds" th:value="${review.id}" />
@@ -19,7 +19,7 @@
                 <!-- implicitly calls toString() -->
             </label><br />
         </th:block>
-        <button class="delete" type='submit'>Delete Artwork</button>
+        <button class="delete" type='submit' style="background-color: #003366;">Delete Vibe</button>
     </form>
 </main>
 </body>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +31,21 @@ public class ReviewsController {
 
     @Autowired
     private WeatherRepository weatherRepository;
+
+    private List<Integer> getSelectedWeatherIds(Review review) {
+        List<Integer> selectedWeatherIds = new ArrayList<>();
+
+        // Assuming that Review has a method getWeather() returning a List of Weather objects
+        List<Weather> selectedWeather = review.getWeather();
+
+        if (selectedWeather != null) {
+            for (Weather weather : selectedWeather) {
+                selectedWeatherIds.add(weather.getId());
+            }
+        }
+
+        return selectedWeatherIds;
+    }
 
     // Corresponds to http://localhost:8080/artworks
     @GetMapping("")
@@ -112,12 +128,38 @@ public class ReviewsController {
 
 
     @GetMapping("/update/{reviewId}")
-    public String displayUpdateArtForm(@PathVariable int reviewId, Model model, HttpSession session) {
-        model.addAttribute("loggedIn", session.getAttribute("user") != null);
-
+    public String displayEditArtForm(@PathVariable("reviewId") int reviewId, Model model, HttpSession session) {
         Optional<Review> result = reviewRepository.findById(reviewId);
         if (result.isPresent()) {
             Review review = result.get();
+            List<CountryInfo> countries = (List<CountryInfo>) countryRepository.findAll();
+            Collections.sort(countries, new CountryComparator());
+            List<Weather> weather = (List<Weather>) weatherRepository.findAll();
+            Collections.sort(weather, new WeatherComparator());
+
+            // Retrieve selected weather IDs for the current review
+            List<Integer> selectedWeatherIds = getSelectedWeatherIds(review);
+
+            model.addAttribute("review", review);
+            model.addAttribute("countries", countries);
+            model.addAttribute("weathers", weather);
+            model.addAttribute("selectedWeatherIds", selectedWeatherIds);
+            model.addAttribute("loggedIn", session.getAttribute("user") != null);
+            return "reviews/update";
+        } else {
+            return "redirect:/reviews";
+        }
+    }
+
+
+    @PostMapping("/update")
+    public String processEditArtForm(@RequestParam int id,
+                                     @ModelAttribute @Valid Review review,
+                                     Errors errors,
+                                     @RequestParam(required = false) List<Integer> weatherIds,
+                                     Model model) {
+        if (errors.hasErrors()) {
+            System.out.println(errors.getAllErrors());
             List<CountryInfo> countries = (List<CountryInfo>) countryRepository.findAll();
             Collections.sort(countries, new CountryComparator());
             List<Weather> weather = (List<Weather>) weatherRepository.findAll();
@@ -126,57 +168,29 @@ public class ReviewsController {
             model.addAttribute("countries", countries);
             model.addAttribute("weathers", weather);
             return "reviews/update";
-        }
-
-        return "redirect:/reviews";
-    }
-
-    @PostMapping("/update/{reviewId}")
-    public String processUpdateArtForm(@PathVariable int reviewId,
-                                       @ModelAttribute @Valid Review updatedReview,
-                                       Errors errors,
-                                       @RequestParam(required = false) List<Integer> weatherIds,
-                                       Model model)
-
-    {
-        if (errors.hasErrors()) {
-            System.out.println(errors.getAllErrors());
-            List<CountryInfo> countries = (List<CountryInfo>) countryRepository.findAll();
-            Collections.sort(countries, new CountryComparator());
-            List<Weather> weather = (List<Weather>) weatherRepository.findAll();
-            Collections.sort(weather, new WeatherComparator());
-            model.addAttribute("review", updatedReview);
-            model.addAttribute("countries", countries);
-            model.addAttribute("weathers", weather);
-            return "reviews/update";
         } else {
-            try {
-                Optional<Review> result = reviewRepository.findById(reviewId);
-                if (result.isPresent()) {
-                    Review existingReview = result.get();
-                    existingReview.setTitle(updatedReview.getTitle());
-                    existingReview.setCity(updatedReview.getCity());
-                    existingReview.setCountry(updatedReview.getCountry());
-                    existingReview.setComment(updatedReview.getComment());
-                    existingReview.setRate(updatedReview.getRate());
+            Optional<Review> existingReview = reviewRepository.findById(id);
+            if (existingReview.isPresent()) {
+                Review updatedReview = existingReview.get();
+                // Update the fields of the existing review with the new values
+                updatedReview.setTitle(review.getTitle());
+                updatedReview.setCity(review.getCity());
+                updatedReview.setRate(review.getRate());
+                updatedReview.setComment(review.getComment());
+                // Update other fields accordingly
 
-                    if (weatherIds != null) {
-                        List<Weather> selectedWeathers = (List<Weather>) weatherRepository.findAllById(weatherIds);
-                        existingReview.setWeather(selectedWeathers);
-                    }
-
-                    reviewRepository.save(existingReview);
-                    return "redirect:/reviews/details/" + reviewId;
-                } else {
-                    return "redirect:/reviews";
+                if (weatherIds != null) {
+                    List<Weather> selectedWeathers = (List<Weather>) weatherRepository.findAllById(weatherIds);
+                    updatedReview.setWeather(selectedWeathers);
                 }
-            } catch (Exception e) {
-                model.addAttribute("error", "An error occurred while updating the review.");
-                return "reviews/update";
+
+                reviewRepository.save(updatedReview);
+                return "redirect:/reviews";
+            } else {
+                return "redirect:/reviews";
             }
         }
     }
-
 
 
 
